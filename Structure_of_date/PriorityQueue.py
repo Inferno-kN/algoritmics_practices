@@ -9,8 +9,22 @@ class Priority: #операции: put, get, is_empty, peek, size
         self.first_node = None
         self.size = 0
 
-    def put(self):
-        pass # понятия не имею как его делать
+    def put(self, value, priority):
+        new_node = Node(value, priority)
+
+        if self.first_node is None:
+            new_node.next = self.first_node
+            self.first_node = new_node
+        else:
+            current_node = self.first_node
+            while current_node.next is not None and current_node.next.priority <= priority:
+                current_node = current_node.next
+            new_node.next = current_node.next
+            current_node.next = new_node
+
+        self.size += 1
+
+
 
     def is_empty(self):
         return self.size == 0
