@@ -5,7 +5,7 @@ def big_digit(digits):
             return digits
     return [1] + digits
 
-digits = [1, 2, 3]
+digits = [9]
 result = big_digit(digits)
 print(result)
 
