@@ -73,6 +73,39 @@ class Dequeue:
         self.size -= 1
         return value
 
+    def size(self):
+        return self.size
+
+    def insert(self, index, item):
+        if index < 0 or index > self.size:
+            raise IndexError("Индекс находится вне диапазона")
+
+        new_node = Node(item)
+
+        if index == 0:
+            self.append_front(item)
+        elif index == self.size:
+            self.append_back(item)
+        else:
+            current_node = self.front
+            count = 0
+            while count < index:
+                current_node = current_node.next
+                count += 1
+
+            new_node.prev = current_node.prev
+            new_node.next = current_node
+
+            if current_node.prev is not None:
+                current_node.prev.next = new_node
+
+            current_node.prev = new_node
+
+            if index == 1:
+                self.front = new_node
+
+            self.size += 1
+
 
 dq = Dequeue()
 dq.append_back(3)

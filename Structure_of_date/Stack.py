@@ -32,6 +32,9 @@ class Stack:
 
         return self.first_node.value
 
+    def size(self):
+        return self.size
+
 st = Stack()
 st.push(5)
 st.push(3)

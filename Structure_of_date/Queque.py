@@ -39,3 +39,6 @@ class Queue:
 
     def is_empty(self):
         return self.size == 0
+
+    def size(self):
+        return self.size

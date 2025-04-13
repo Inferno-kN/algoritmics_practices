@@ -10,7 +10,7 @@ class DoubleLinkedList:
 
     def __init__(self):
         self.first_node = None
-
+        self.last_node = None
 
     def push_front(self, value):
         if self.first_node is None:
@@ -90,6 +90,32 @@ class DoubleLinkedList:
         current_node.prev.next = current_node.next
         current_node.next.prev = current_node.prev
 
+    def remove_front(self):
+        if self.first_node is None:
+            return
+
+        if self.first_node == self.last_node:
+            self.first_node = None
+            self.last_node = None
+        else:
+            self.first_node = self.first_node.next
+            self.first_node.prev = None
+
+    def remove_back(self):
+        if self.last_node is None:
+            return
+
+        if self.first_node == self.last_node:
+            self.first_node = None
+            self.last_node = None
+        else:
+            self.last_node = self.last_node.prev
+            self.last_node.next = None
+
+
+
+    def size(self):
+        return self.length()
 
 
 l = DoubleLinkedList()

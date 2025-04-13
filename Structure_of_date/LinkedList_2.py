@@ -1,8 +1,3 @@
-from ctypes import create_unicode_buffer
-from logging import currentframe
-from os.path import curdir
-
-
 class Node:
 
     def __init__(self, value, next=None):

@@ -9,10 +9,10 @@ class Priority: #операции: put, get, is_empty, peek, size
         self.first_node = None
         self.size = 0
 
-    def put(self, value, priority):
+    def insert(self, value, priority):
         new_node = Node(value, priority)
 
-        if self.first_node is None:
+        if self.first_node is None or self.first_node.priority > priority:
             new_node.next = self.first_node
             self.first_node = new_node
         else:
@@ -24,22 +24,20 @@ class Priority: #операции: put, get, is_empty, peek, size
 
         self.size += 1
 
-
-
     def is_empty(self):
         return self.size == 0
 
     def size(self):
         return self.size
 
-    def get_priority(self): # извлекаем элемент с высшим приоритетом
+    def extract_min(self):
         if self.is_empty():
             return None
 
-        value = self.first_node.value
+        min_value = self.first_node.value
         self.first_node = self.first_node.next
         self.size -= 1
-        return value
+        return min_value
 
     def peek(self):
         if self.is_empty():
