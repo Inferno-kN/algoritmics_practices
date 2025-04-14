@@ -1,11 +1,15 @@
-class Node:
+class PrintDocument:
+    def __init__(self, Title: str, NumberOfPages: int):
+        self.Title = Title
+        self.NumberOfPages = NumberOfPages
 
+class Node:
     def __init__(self, value, next=None):
         self.value = value
         self.next = next
 
-class Queue:
 
+class PrintQueue:
     def __init__(self):
         self.top = None
         self.last = None
@@ -15,6 +19,7 @@ class Queue:
         if self.top is None:
             self.top = Node(item)
             self.last = self.top
+
         else:
             new_last = Node(item, None)
             self.last.next = new_last
@@ -23,22 +28,15 @@ class Queue:
         self.size += 1
 
     def dequeue(self):
-        if self.size == 0:
-            return None
-
-        value = self.top.value
-        self.top = self.top.next
-        self.size -= 1
-        return value
-
-    def peek(self):
         if self.is_empty():
             return None
-
-        return self.top.value
+        value = self.top.value
+        self.top = self.top.next
+        self.size -=1
+        return value
 
     def is_empty(self):
         return self.size == 0
 
-    def size(self):
+    def count(self):
         return self.size
