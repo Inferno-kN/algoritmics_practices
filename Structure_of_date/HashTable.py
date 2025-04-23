@@ -92,6 +92,6 @@ ht = HashTable(12)
 ht.set("doodle", 3)
 ht.set("jump", 5)
 ht.set("return", 8)
-
-print(ht.get("jump"))
+ht.remove('jump')
+print(ht.get("return"))
 
