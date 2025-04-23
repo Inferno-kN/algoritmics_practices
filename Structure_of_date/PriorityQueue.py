@@ -43,4 +43,3 @@ class Priority: #операции: put, get, is_empty, peek, size
         if self.is_empty():
             return None
         return self.first_node.value
-
